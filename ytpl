@@ -21,10 +21,24 @@ while [ "$#" -gt "0" ]; do
     esac
     shift
 done
-echo URL: $URL
-echo SEPARATOR: $SEPARATOR
-echo FORMATTING: $FORMATTING
-echo TAGS: $TAGS
+# echo URL: $URL
+# echo SEPARATOR: $SEPARATOR
+# echo FORMATTING: $FORMATTING
+# echo TAGS: $TAGS
+
+#check if formatting is valid
+for i in $FORMATTING; do
+    case $i in 
+        "url") : ;;
+        "uploader") : ;;
+        "title") : ;;
+        "tags") : ;;
+        *) 
+            echo "invalid formatting string. Use ytpl -h for help" >&2; exit 2
+        ;;
+    esac
+    # printf '%s\n' "$i"
+done
 
 #TODO fetching the playlist
 # PLAYLISTS=`youtube-dl -j --flat-playlist "$1"` 
