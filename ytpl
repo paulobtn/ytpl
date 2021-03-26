@@ -1,0 +1,32 @@
+#!/bin/sh
+
+URL=""
+SEPARATOR=","
+FORMATTING="url uploader title"
+TAGS=""
+while [ "$#" -gt "0" ]; do
+    case $1 in
+        "-t") TAGS="$2" shift ;;
+        "-s") SEPARATOR="$2" shift ;;
+        "-f") FORMATTING="$2" shift ;;
+        "-h") echo "todo help" ;;
+        "-v") echo "todo version" ;;
+        *) 
+            if [ -n "`echo "$1" | grep "^-"`" ] || [ ! -z "$URL" ]; then
+                echo "invalid command. Use bm -h for help" >&2; exit 1
+            else
+                URL="$1"
+            fi
+        ;;
+    esac
+    shift
+done
+echo URL: $URL
+echo SEPARATOR: $SEPARATOR
+echo FORMATTING: $FORMATTING
+echo TAGS: $TAGS
+
+#TODO fetching the playlist
+# PLAYLISTS=`youtube-dl -j --flat-playlist "$1"` 
+# PLAYLISTS=`youtube-dl -j --flat-playlist "$1" | jq -r '"\(.["title"])\thttps://youtu.be/\(.["id"])"'`
+# printf "%s\n" "$PLAYLISTS"
