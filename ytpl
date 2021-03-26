@@ -21,10 +21,7 @@ while [ "$#" -gt "0" ]; do
     esac
     shift
 done
-# echo URL: $URL
-# echo SEPARATOR: $SEPARATOR
-# echo FORMATTING: $FORMATTING
-# echo TAGS: $TAGS
+#
 
 #check if formatting is valid
 for i in $FORMATTING; do
@@ -37,10 +34,21 @@ for i in $FORMATTING; do
             echo "invalid formatting string. Use ytpl -h for help" >&2; exit 2
         ;;
     esac
-    # printf '%s\n' "$i"
 done
 
-#TODO fetching the playlist
-# PLAYLISTS=`youtube-dl -j --flat-playlist "$1"` 
-# PLAYLISTS=`youtube-dl -j --flat-playlist "$1" | jq -r '"\(.["title"])\thttps://youtu.be/\(.["id"])"'`
-# printf "%s\n" "$PLAYLISTS"
+#transform the formatting string into something readable by jq
+FORMATTING=`echo $FORMATTING | \
+            sed 's/url/https\:\/\/youtu.be\/\\\(\.\[\"url\"\]\)/' | \
+            sed 's/title/\\\\(\.\[\"title\"\]\)/' | \
+            sed 's/uploader/\\\\(\.\[\"uploader\"\]\)/' | \
+            sed "s/ /$(printf '%q' "$SEPARATOR")/g"
+`
+FORMATTING=\"$FORMATTING\"
+# echo URL: $URL
+# echo SEPARATOR: $SEPARATOR
+# echo FORMATTING: "$FORMATTING"
+# echo TAGS: $TAGS
+
+#fetching the playlist
+PLAYLISTS_CMD="youtube-dl -j --flat-playlist "$URL" | jq -r '$FORMATTING'"
+eval "$PLAYLISTS_CMD" #TODO change it to something safer
