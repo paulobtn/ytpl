@@ -13,7 +13,7 @@ while [ "$#" -gt "0" ]; do
         "-v") echo "todo version" ;;
         *) 
             if [ -n "`echo "$1" | grep "^-"`" ] || [ ! -z "$URL" ]; then
-                echo "invalid command. Use bm -h for help" >&2; exit 1
+                echo "invalid command. Use ytpl -h for help" >&2; exit 1
             else
                 URL="$1"
             fi
