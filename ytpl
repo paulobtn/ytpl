@@ -41,14 +41,10 @@ FORMATTING=`echo $FORMATTING | \
             sed 's/url/https\:\/\/youtu.be\/\\\(\.\[\"url\"\]\)/' | \
             sed 's/title/\\\\(\.\[\"title\"\]\)/' | \
             sed 's/uploader/\\\\(\.\[\"uploader\"\]\)/' | \
-            sed "s/ /$(printf '%q' "$SEPARATOR")/g"
+            sed "s/ /$(printf '%q' "$SEPARATOR")/g" | \
+            sed "s/tags/\[ $TAGS \]/"
 `
 FORMATTING=\"$FORMATTING\"
-# echo URL: $URL
-# echo SEPARATOR: $SEPARATOR
-# echo FORMATTING: "$FORMATTING"
-# echo TAGS: $TAGS
 
 #fetching the playlist
-PLAYLISTS_CMD="youtube-dl -j --flat-playlist "$URL" | jq -r '$FORMATTING'"
-eval "$PLAYLISTS_CMD" #TODO change it to something safer
+youtube-dl -j --flat-playlist "$URL" | jq -r "$FORMATTING"
