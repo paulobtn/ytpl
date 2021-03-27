@@ -18,7 +18,7 @@ put the bm file somwhere you can run it:
 curl -sSL https://raw.githubusercontent.com/paulobtn/ytpl/main/ytpl -o "$HOME/.local/bin/ytpl" && \
 sudo chmod +x "$HOME/.local/bin/ytpl"
 ```
-to launch as "ytpl" you need to add $HOME/.local/bin in your path
+to launch as "ytpl" you need to add $HOME/.local/bin to your path
 ```bash
 export PATH="$HOME/.local/bin:$PATH"
 ```
