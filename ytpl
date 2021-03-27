@@ -66,16 +66,18 @@ Written by Paulo Neto
 EOF
 }
 
+[ "$#" -eq "0" ] && output_help && exit 0
+
 #parsing the arguments
 while [ "$#" -gt "0" ]; do
-    case $1 in
+    case "$1" in
         "-t") TAGS="$2" shift ;;
         "-s") SEPARATOR="$2" shift ;;
         "-f") FORMATTING="$2" shift ;;
-        "-h") output_help && exit 0;;
+        "-h") output_help && exit 0 ;;
         "-v") output_version && exit 0 ;;
         *) 
-            if [ -n "`echo "$1" | grep "^-"`" ] || [ ! -z "$URL" ]; then
+            if [ -n "`echo "$1" | grep "^-"`" ] || [ ! -z "$URL" ] || [ -z "$2" ]; then
                 echo "invalid command. Use ytpl -h for help" >&2; exit 1
             else
                 URL="$1"
