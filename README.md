@@ -2,7 +2,7 @@
 
 A small and portable shell based tool to extract metadata from youtube playlists.
 I used to save my playlists using my google account, but videos were randomly deleted all the time and the youtube interface doesn't show which videos were deleted. So I made this little tool to easily extract playlists metadata into parsable formats like csv or tsv. You can open the output in a spreadsheet.
-I also added a tags support to make it better integrated with my other tool [cli-bookmarker](http://github.com/paulobtn/cli-bookmarker).
+I also added support for tags. This is useful to work with multiple playlists and it makes this script better integrated with my other tool [cli-bookmarker](http://github.com/paulobtn/cli-bookmarker).
 
 ## Features
 
@@ -63,9 +63,10 @@ to display a table separated by tabs with the data \[title, url\] and add a colu
 ytpl <playlist-url> -f "title url tags" -t "linux programming"
 ```
 
-to save the playlist in a format accepted by [cli-bookmarker](http://github.com/paulobtn/cli-bookmarker)
+to save playlists in a format accepted by [cli-bookmarker](http://github.com/paulobtn/cli-bookmarker)
 ```bash
-ytpl <playlist-url> -f "title tags url" -t "youtube linux" >> bookmarks
+ytpl <playlist-1-url> -f "title tags url" -t "playlist-1-name youtube linux" >> bookmarks && \
+ytpl <playlist-2-url> -f "title tags url" -t "playlist-2-name youtube music" >> bookmarks
 ```
 
 ## License
