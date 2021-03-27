@@ -69,6 +69,6 @@ ytpl <playlist-url> -f "title tags url" -t "youtube linux" >> bookmarks
 ```
 
 ## License
-License GPLv3
-This is free software: you are free to change and redistribute it.
+License GPLv3<br>
+This is free software: you are free to change and redistribute it.<br>
 Written by Paulo Neto
