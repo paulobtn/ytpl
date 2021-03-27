@@ -65,8 +65,8 @@ ytpl <playlist-url> -f "title url tags" -t "linux programming"
 
 to save playlists in a format accepted by [cli-bookmarker](http://github.com/paulobtn/cli-bookmarker)
 ```bash
-ytpl <playlist-1-url> -f "title tags url" -t "playlist-1-name youtube linux" >> bookmarks && \
-ytpl <playlist-2-url> -f "title tags url" -t "playlist-2-name youtube music" >> bookmarks
+ytpl <playlist-1-url> -f "title tags url" -t "playlist-1-name" >> bookmarks && \
+ytpl <playlist-2-url> -f "title tags url" -t "playlist-2-name" >> bookmarks
 ```
 
 ## License
