@@ -77,7 +77,7 @@ while [ "$#" -gt "0" ]; do
         "-h") output_help && exit 0 ;;
         "-v") output_version && exit 0 ;;
         *) 
-            if [ -n "`echo "$1" | grep "^-"`" ] || [ ! -z "$URL" ] || [ -z "$2" ]; then
+            if [ -n "`echo "$1" | grep "^-"`" ] || [ ! -z "$URL" ] ; then
                 echo "invalid command. Use ytpl -h for help" >&2; exit 1
             else
                 URL="$1"
