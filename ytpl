@@ -2,9 +2,69 @@
 
 #default values
 URL=""
-SEPARATOR=","
+SEPARATOR="\t"
 FORMATTING="url uploader title"
 TAGS=""
+
+#helper functions
+output_help() {
+cat <<EOF
+
+ytpl: Extract metadata from youtube playlists
+
+Usage:
+
+    ytpl [url] [options...]
+
+Options:
+
+    -t, add a tags to the output table
+    -s, change the separator character (default: "\t")
+    -f, add a formatting string to change the fields and order to show them (default: "url uploader title")
+    -h, show help
+    -v, show version
+
+Formatting:
+
+    ytpl can create tables with 4 types of data:
+
+        * title
+        * uploader
+        * url
+        * tags
+ 
+    You can send a formatting string  with the option -f to determine which data and
+    which order you want to print them.
+
+Examples:
+
+    to display a table separated by tabs with the data: [url, uploader, title]
+    ytpl <playlist-url>
+
+    to display a table separated by commas with the data: [url, title]
+    ytpl <playlist-url> -s "," -f "url title"
+
+    to display a table separated by tabs with the data [title, url] and add a column with tags
+    ytpl <playlist-url> -f "title url tags" -t "linux programming"
+
+More help at <https://github.com/paulobtn/ytpl>
+
+EOF
+}
+
+output_version() {
+
+cat <<EOF
+
+ytpl 1.0
+License GPLv3: GNU GPL version 3.
+This is free software: you are free to change and redistribute it.
+
+Written by Paulo Neto
+<https://github.com/paulonetodev/ytpl>
+
+EOF
+}
 
 #parsing the arguments
 while [ "$#" -gt "0" ]; do
@@ -12,8 +72,8 @@ while [ "$#" -gt "0" ]; do
         "-t") TAGS="$2" shift ;;
         "-s") SEPARATOR="$2" shift ;;
         "-f") FORMATTING="$2" shift ;;
-        "-h") echo "todo help" ;;
-        "-v") echo "todo version" ;;
+        "-h") output_help && exit 0;;
+        "-v") output_version && exit 0 ;;
         *) 
             if [ -n "`echo "$1" | grep "^-"`" ] || [ ! -z "$URL" ]; then
                 echo "invalid command. Use ytpl -h for help" >&2; exit 1
@@ -24,7 +84,7 @@ while [ "$#" -gt "0" ]; do
     esac
     shift
 done
-#
+
 
 #checking if formatting is valid
 for i in $FORMATTING; do
