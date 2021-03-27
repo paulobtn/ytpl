@@ -26,7 +26,7 @@ export PATH="$HOME/.local/bin:$PATH"
 ### Dependencies
 
 * [youtube-dl](https://github.com/ytdl-org/youtube-dl) to fetch the json with the metadata
-* [jq)](https://github.com/stedolan/jq) to parse the json data
+* [jq](https://github.com/stedolan/jq) to parse the json data
 
 ## Usage
 
