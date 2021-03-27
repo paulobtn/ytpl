@@ -10,7 +10,7 @@ I also added a tags support to make it better integrated with my other tool [cli
 * Format the output in any order
 * Use any separator you want
 
-## Instalation
+## Installation
 
 put the bm file somewhere you can run it:
 ```bash
