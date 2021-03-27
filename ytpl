@@ -1,9 +1,12 @@
 #!/bin/sh
 
+#default values
 URL=""
 SEPARATOR=","
 FORMATTING="url uploader title"
 TAGS=""
+
+#parsing the arguments
 while [ "$#" -gt "0" ]; do
     case $1 in
         "-t") TAGS="$2" shift ;;
@@ -23,7 +26,7 @@ while [ "$#" -gt "0" ]; do
 done
 #
 
-#check if formatting is valid
+#checking if formatting is valid
 for i in $FORMATTING; do
     case $i in 
         "url") : ;;
@@ -36,7 +39,7 @@ for i in $FORMATTING; do
     esac
 done
 
-#transform the formatting string into something readable by jq
+#transforming the formatting string into something readable by jq
 FORMATTING=`echo $FORMATTING | \
             sed 's/url/https\:\/\/youtu.be\/\\\(\.\[\"url\"\]\)/' | \
             sed 's/title/\\\\(\.\[\"title\"\]\)/' | \
