@@ -1,6 +1,6 @@
 # ytpl
 
-A small portable shell based tool to extract metadata from youtube playlists.
+A small shell based tool to extract metadata from youtube playlists.
 I used to save my playlists using my google account, but videos were randomly deleted all the time and the youtube interface doesn't show which videos were deleted. So I made this little tool to easily extract playlists metadata into parsable formats like csv or tsv. You can open the output in a spreadsheet.
 I also added a tags support to make it better integrated with my other tool [cli-bookmarker](http://github.com/paulobtn/cli-bookmarker).
 
