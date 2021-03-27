@@ -12,7 +12,7 @@ I also added a tags support to make it better integrated with my other tool [cli
 
 ## Instalation
 
-put the bm file somwhere you can run it:
+put the bm file somewhere you can run it:
 ```bash
 ([ -d "$HOME/.local/bin" ] || mkdir -p "$HOME/.local/bin") && \
 curl -sSL https://raw.githubusercontent.com/paulobtn/ytpl/main/ytpl -o "$HOME/.local/bin/ytpl" && \
