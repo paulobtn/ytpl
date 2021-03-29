@@ -56,7 +56,7 @@ output_version() {
 
 cat <<EOF
 
-ytpl 1.0
+ytpl 2.0
 License GPLv3: GNU GPL version 3.
 This is free software: you are free to change and redistribute it.
 
@@ -107,7 +107,7 @@ FORMATTING=`echo $FORMATTING | \
             sed 's/title/\\\\(\.\[\"title\"\]\)/' | \
             sed 's/uploader/\\\\(\.\[\"uploader\"\]\)/' | \
             sed "s/ /$(printf '%s' "$SEPARATOR")/g" | \
-            sed "s/tags/\[ $TAGS \]/"
+            sed "s/tags/$TAGS/"
 `
 FORMATTING=\"$FORMATTING\"
 
