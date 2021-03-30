@@ -111,5 +111,7 @@ FORMATTING=`echo $FORMATTING | \
 `
 FORMATTING=\"$FORMATTING\"
 
+# clean the URL if it's indexing to a video (url must be passed with quotes)
+URL=`echo "$URL" | sed 's/watch.*\&list/playlist\?list/' | sed "s/&index.*//"`
 #fetching the playlist
 youtube-dl -j --flat-playlist "$URL" | jq -r "$FORMATTING"
