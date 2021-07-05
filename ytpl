@@ -18,7 +18,7 @@ Usage:
 
 Options:
 
-    -t, add a tags to the output table
+    -t, add tags to the output table
     -s, change the separator character (default: "\t")
     -f, add a formatting string to change the fields and order to show them (default: "url uploader title")
     -h, show help
