@@ -2,7 +2,7 @@
 
 A small and portable shell based tool to extract metadata from youtube playlists.<br>
 
-I used to save my playlists using my google account, but videos were randomly deleted all the time and the youtube interface doesn't show which videos were deleted. So I made this little tool to easily extract playlists metadata into parsable formats like csv or tsv. It's possible to open the output in a spreadsheet or any other compatible software.
+I used to save my playlists using my google account but videos were randomly deleted all the time and the youtube interface doesn't show which videos were deleted. So I made this little tool to easily extract playlists metadata into parsable formats like csv or tsv. It's possible to open the output in a spreadsheet or any other compatible software.
 I also added support for tags. This is useful to work with multiple playlists and it makes this script better integrated with my other tool [cli-bookmarker](http://github.com/paulobtn/cli-bookmarker).
 
 ## Features
